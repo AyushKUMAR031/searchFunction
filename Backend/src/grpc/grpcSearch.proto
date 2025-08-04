@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+service SearchService {
+  rpc Search (SearchRequest) returns (SearchResponse);
+}
+
+message SearchRequest {
+  string query = 1;
+}
+
+message SearchResponse {
+  repeated Question questions = 1;
+}
+
+message Question {
+  string id = 1;
+  string type = 2;
+  string title = 3;
+  repeated Option options = 4;
+  string solution = 5;
+}
+
+message Option {
+  string text = 1;
+  bool isCorrectAnswer = 2;
+}
